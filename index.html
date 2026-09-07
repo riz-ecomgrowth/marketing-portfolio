@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Rizwan Muhammad | E-Commerce & Performance Marketing Specialist</title>
     <style>
         :root {
@@ -26,14 +29,17 @@
 
         html {
             scroll-behavior: smooth;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
         }
 
         .bg-grid {
@@ -132,6 +138,52 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .nav-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-backdrop.active {
+            display: block;
+            opacity: 1;
         }
 
         .hero {
@@ -283,6 +335,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .section-label {
@@ -343,7 +396,27 @@
         }
 
         .service-chip .icon {
-            font-size: 1.2rem;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-chip .icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--text-secondary);
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: all 0.3s ease;
+        }
+
+        .service-chip:hover .icon svg {
+            stroke: var(--accent);
+            filter: drop-shadow(0 0 6px rgba(0, 210, 255, 0.5));
         }
 
         .metrics-grid {
@@ -414,6 +487,12 @@
             border-radius: 24px;
             transition: all 0.4s ease;
             position: relative;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
         }
 
         .expertise-card:hover {
@@ -422,25 +501,45 @@
         }
 
         .expertise-card .card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            width: 56px;
+            height: 56px;
+            background: transparent;
             border-radius: 16px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.15), 0 0 40px rgba(0, 210, 255, 0.05);
+            transition: all 0.4s ease;
+            margin-bottom: 0;
+        }
+
+        .expertise-card .card-icon:hover {
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3), 0 0 60px rgba(0, 210, 255, 0.1);
+            border-color: rgba(0, 210, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .expertise-card .card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--accent);
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .expertise-card h3 {
             font-size: 1.4rem;
-            margin-bottom: 20px;
             color: var(--text-primary);
+            margin: 0;
         }
 
         .expertise-card ul {
             list-style: none;
+            flex: 0 0 100%;
+            width: 100%;
         }
 
         .expertise-card li {
@@ -450,6 +549,8 @@
             display: flex;
             align-items: flex-start;
             gap: 12px;
+            justify-content: center;
+            text-align: left;
         }
 
         .expertise-card li:last-child {
@@ -482,6 +583,9 @@
             border-radius: 24px;
             overflow: hidden;
             transition: all 0.4s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
         }
 
         .case-card:hover {
@@ -529,6 +633,7 @@
             padding: 25px 35px;
             background: var(--glass);
             border-top: 1px solid var(--border);
+            margin-top: auto;
         }
 
         .case-image {
@@ -537,6 +642,7 @@
             object-fit: cover;
             border-bottom: 1px solid var(--border);
             display: block;
+            flex-shrink: 0;
         }
 
         .case-image-placeholder {
@@ -582,15 +688,14 @@
             border: 1px solid var(--border);
             padding: 35px;
             border-radius: 24px;
+            text-align: center;
         }
 
         .skill-category h3 {
             font-size: 1.2rem;
             margin-bottom: 25px;
             color: var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            text-align: center;
         }
 
         .skill-tags {
@@ -627,6 +732,7 @@
             padding: 35px;
             border-radius: 24px;
             position: relative;
+            text-align: center;
         }
 
         .testimonial-card::before {
@@ -730,39 +836,84 @@
 
         .contact-item {
             display: flex;
+            flex-direction: row;
             align-items: center;
-            gap: 12px;
+            justify-content: flex-start;
+            gap: 0;
             font-size: 1.1rem;
+            padding: 12px 20px;
+            background: var(--glass);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 500px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: rgba(0, 210, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .contact-icon {
-            width: 36px;
-            height: 36px;
+            width: 56px;
+            height: 56px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
+            border-radius: 16px;
+            background: rgba(0, 210, 255, 0.08);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.15), 0 0 40px rgba(0, 210, 255, 0.05);
             flex-shrink: 0;
-            color: #EA4335;
-            background: rgba(234, 67, 53, 0.1);
-            border: 1px solid rgba(234, 67, 53, 0.3);
+            margin-right: 16px;
+            transition: all 0.4s ease;
         }
 
         .contact-icon svg {
-            width: 20px;
-            height: 20px;
+            width: 28px;
+            height: 28px;
+            stroke: var(--accent);
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .contact-item:hover .contact-icon {
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3), 0 0 60px rgba(0, 210, 255, 0.1);
+            border-color: rgba(0, 210, 255, 0.5);
+            transform: translateY(-2px);
         }
 
         .contact-icon.whatsapp-icon {
-            background: #25D366;
-            color: #fff;
-            border-color: #25D366;
+            background: rgba(37, 211, 102, 0.08);
+            border-color: rgba(37, 211, 102, 0.25);
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.15), 0 0 40px rgba(37, 211, 102, 0.05);
+        }
+
+        .contact-icon.whatsapp-icon svg {
+            stroke: #25D366;
+        }
+
+        .contact-item:hover .contact-icon.whatsapp-icon {
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3), 0 0 60px rgba(37, 211, 102, 0.1);
+            border-color: rgba(37, 211, 102, 0.5);
         }
 
         .contact-icon.linkedin-icon {
-            background: #0A66C2;
-            color: #fff;
-            border-color: #0A66C2;
+            background: rgba(10, 102, 194, 0.08);
+            border-color: rgba(10, 102, 194, 0.25);
+            box-shadow: 0 0 20px rgba(10, 102, 194, 0.15), 0 0 40px rgba(10, 102, 194, 0.05);
+        }
+
+        .contact-icon.linkedin-icon svg {
+            stroke: #0A66C2;
+        }
+
+        .contact-item:hover .contact-icon.linkedin-icon {
+            box-shadow: 0 0 30px rgba(10, 102, 194, 0.3), 0 0 60px rgba(10, 102, 194, 0.1);
+            border-color: rgba(10, 102, 194, 0.5);
         }
 
         .contact-label {
@@ -779,6 +930,47 @@
 
         .contact-item a:hover {
             color: var(--accent);
+        }
+
+        .icon-glow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(0, 210, 255, 0.08);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.15), 0 0 40px rgba(0, 210, 255, 0.05);
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .icon-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3), 0 0 60px rgba(0, 210, 255, 0.1);
+            border-color: rgba(0, 210, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .icon-glow svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--accent);
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .icon-glow.solid svg {
+            fill: currentColor;
+            stroke: none;
+        }
+
+        .icon-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
         .projects-grid {
@@ -842,6 +1034,7 @@
 
         .project-content {
             padding: 25px;
+            text-align: center;
         }
 
         .project-content h3 {
@@ -895,6 +1088,95 @@
             text-align: center;
             padding: 12px 20px;
             font-size: 0.95rem;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .experience-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 210, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .experience-header {
+            padding: 25px 30px 20px;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .experience-date {
+            display: inline-block;
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .experience-header h3 {
+            font-size: 1.3rem;
+            margin: 0 0 8px 0;
+            color: var(--text-primary);
+        }
+
+        .company-name {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .experience-body {
+            padding: 25px 30px;
+        }
+
+        .experience-body p {
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        .experience-highlights {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .experience-highlights li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .experience-highlights li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .experience-highlights li:last-child {
+            margin-bottom: 0;
         }
 
         .modal {
@@ -1029,10 +1311,18 @@
         }
 
         @media (max-width: 768px) {
+            section {
+                padding: 70px 20px;
+            }
+
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
                 gap: 40px;
+            }
+
+            .hero-text {
+                text-align: center;
             }
 
             .hero-buttons {
@@ -1048,12 +1338,157 @@
                 display: none;
             }
 
+            .cta-section {
+                padding: 60px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: clamp(1.6rem, 5vw, 2.2rem);
+                margin-bottom: 12px;
+            }
+
+            .cta-section p {
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+            }
+
+            .contact-details {
+                gap: 10px;
+                margin-bottom: 25px;
+            }
+
+            .contact-item {
+                font-size: 0.9rem;
+                padding: 10px 16px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+            }
+
+            .contact-icon {
+                width: 48px;
+                height: 48px;
+                margin-right: 12px;
+            }
+
+            .contact-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .contact-label {
+                font-size: 0.85rem;
+                margin-right: 4px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+                max-width: 350px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(11, 15, 25, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 30px;
+                padding: 40px;
+                transition: right 0.4s ease;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                width: 100%;
+                padding: 10px 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .metrics-grid,
+            .expertise-grid,
+            .skills-container,
+            .testimonials-grid,
+            .cases-grid,
+            .projects-grid,
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .metric-card,
+            .expertise-card,
+            .skill-category,
+            .testimonial-card,
+            .case-card,
+            .project-card,
+            .experience-card {
+                padding: 25px 20px;
+            }
+
+            .case-header,
+            .case-body,
+            .case-results {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .project-content {
+                padding: 20px;
             }
 
             .case-results {
                 grid-template-columns: 1fr;
+            }
+
+            .project-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .experience-header {
+                padding: 20px 20px 15px;
+            }
+
+            .experience-header h3 {
+                font-size: 1.15rem;
+            }
+
+            .experience-body {
+                padding: 20px;
+            }
+
+            .experience-body p {
+                font-size: 0.95rem;
+            }
+
+            .experience-highlights li {
+                font-size: 0.9rem;
+            }
+
+            .modal-content {
+                margin: 20px;
+                max-height: 80vh;
+            }
+
+            .modal-header,
+            .modal-body {
+                padding: 20px;
             }
         }
     </style>
@@ -1066,16 +1501,24 @@
     <nav>
         <div class="nav-container">
             <div class="logo">RM.GROWTH</div>
-            <div class="nav-links">
-                <a href="#hero">Home</a>
-                <a href="#metrics">Metrics</a>
-                <a href="#expertise">Expertise</a>
-                <a href="#cases">Case Studies</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#hero" onclick="toggleMenu()">Home</a>
+                <a href="#metrics" onclick="toggleMenu()">Metrics</a>
+                <a href="#expertise" onclick="toggleMenu()">Expertise</a>
+                <a href="#experience" onclick="toggleMenu()">Experience</a>
+                <a href="#cases" onclick="toggleMenu()">Case Studies</a>
+                <a href="#projects" onclick="toggleMenu()">Project Gallery</a>
+                <a href="#skills" onclick="toggleMenu()">Skills</a>
+                <a href="#contact" onclick="toggleMenu()">Contact</a>
             </div>
+            <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+    <div class="nav-backdrop" id="navBackdrop" onclick="toggleMenu()"></div>
 
     <section id="hero" class="hero">
         <div class="hero-content">
@@ -1099,33 +1542,33 @@
 
     <div class="services-banner">
         <div class="services-track">
-            <div class="service-chip"><span class="icon">🛒</span> Shopify Architecture</div>
-            <div class="service-chip"><span class="icon">📈</span> Meta Ads</div>
-            <div class="service-chip"><span class="icon">🎯</span> Google PMax</div>
-            <div class="service-chip"><span class="icon">📱</span> TikTok Ads</div>
-            <div class="service-chip"><span class="icon">🔧</span> Server-Side Tracking</div>
-            <div class="service-chip"><span class="icon">🔍</span> Catalog SEO</div>
-            <div class="service-chip"><span class="icon">📊</span> A/B Testing</div>
-            <div class="service-chip"><span class="icon">🌐</span> Multi-Channel Strategy</div>
-            <div class="service-chip"><span class="icon">⚡</span> CAPI Integration</div>
-            <div class="service-chip"><span class="icon">🎨</span> Creative Strategy</div>
-            <div class="service-chip"><span class="icon">🛒</span> Shopify Architecture</div>
-            <div class="service-chip"><span class="icon">📈</span> Meta Ads</div>
-            <div class="service-chip"><span class="icon">🎯</span> Google PMax</div>
-            <div class="service-chip"><span class="icon">📱</span> TikTok Ads</div>
-            <div class="service-chip"><span class="icon">🔧</span> Server-Side Tracking</div>
-            <div class="service-chip"><span class="icon">🔍</span> Catalog SEO</div>
-            <div class="service-chip"><span class="icon">📊</span> A/B Testing</div>
-            <div class="service-chip"><span class="icon">🌐</span> Multi-Channel Strategy</div>
-            <div class="service-chip"><span class="icon">⚡</span> CAPI Integration</div>
-            <div class="service-chip"><span class="icon">🎨</span> Creative Strategy</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span> Shopify Architecture</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> Meta Ads</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Google PMax</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span> TikTok Ads</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><path d="M8 3l-6 9 6 9"/><path d="M16 3l6 9-6 9"/></svg></span> Server-Side Tracking</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span> Catalog SEO</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span> A/B Testing</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> Multi-Channel Strategy</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span> CAPI Integration</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></span> Creative Strategy</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span> Shopify Architecture</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> Meta Ads</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Google PMax</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span> TikTok Ads</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><path d="M8 3l-6 9 6 9"/><path d="M16 3l6 9-6 9"/></svg></span> Server-Side Tracking</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span> Catalog SEO</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span> A/B Testing</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> Multi-Channel Strategy</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span> CAPI Integration</div>
+            <div class="service-chip"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></span> Creative Strategy</div>
         </div>
     </div>
 
     <section id="metrics">
         <div class="container">
             <div class="section-label">Performance</div>
-            <h2 class="section-title reveal">📊 Key Metrics Delivered</h2>
+            <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span></div><h2 class="section-title reveal">Key Metrics Delivered</h2>
             <div class="metrics-grid">
                 <div class="metric-card reveal">
                     <span class="metric-number" data-target="304">0</span>
@@ -1150,10 +1593,10 @@
     <section id="expertise">
         <div class="container">
             <div class="section-label">Expertise</div>
-            <h2 class="section-title reveal">🎯 Core Strategic Stack</h2>
+            <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span></div><h2 class="section-title reveal">Core Strategic Stack</h2>
             <div class="expertise-grid">
                 <div class="expertise-card reveal">
-                    <div class="card-icon">🛒</div>
+                    <div class="card-icon icon-glow"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
                     <h3>E-Commerce Operations</h3>
                     <ul>
                         <li>
@@ -1171,7 +1614,7 @@
                     </ul>
                 </div>
                 <div class="expertise-card reveal">
-                    <div class="card-icon">📢</div>
+                    <div class="card-icon icon-glow"><svg viewBox="0 0 24 24"><path d="M3 17h18"/><path d="M7 17l4-4 4 4 6-8"/></svg></div>
                     <h3>Paid Advertising & Tracking</h3>
                     <ul>
                         <li>
@@ -1189,7 +1632,7 @@
                     </ul>
                 </div>
                 <div class="expertise-card reveal">
-                    <div class="card-icon">📊</div>
+                    <div class="card-icon icon-glow"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
                     <h3>Data & Analytics</h3>
                     <ul>
                         <li>
@@ -1210,10 +1653,97 @@
         </div>
     </section>
 
+    <section id="experience" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-label">Career Path</div>
+            <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span></div><h2 class="section-title reveal">Work Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <span class="experience-date">May 2026 – Present</span>
+                        <h3>Digital Marketing Manager</h3>
+                        <p class="company-name">Speedforce Digital (Saudi-based) - Lahore, Punjab</p>
+                    </div>
+                    <div class="experience-body">
+                        <p>Plan and manage performance marketing campaigns across Google Ads and Meta Ads, driving traffic, conversions, and ROI for a Saudi-based client base. Own end-to-end digital marketing operations spanning paid advertising, email marketing, and SEO across multiple channels.</p>
+                        <ul class="experience-highlights">
+                            <li>Build and execute content strategy aligned with brand goals and audience preferences.</li>
+                            <li>Analyze campaign performance metrics and translate data into insights for continuous optimization.</li>
+                            <li>Collaborate with developers and designers to implement website updates, landing pages, and creative assets.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <span class="experience-date">October 2025 – Present</span>
+                        <h3>Digital Marketing Manager (Remote)</h3>
+                        <p class="company-name">Elara.pk - Lahore, Punjab</p>
+                    </div>
+                    <div class="experience-body">
+                        <p>Built a complete Shopify store for a women's handbag brand, including product listings and store configuration. Executed full on-page SEO and set up Google Merchant Center and Google Analytics for performance tracking.</p>
+                        <ul class="experience-highlights">
+                            <li>Launched social media presence across multiple platforms.</li>
+                            <li>Managed Meta Ads and Google Ads campaigns to drive sales.</li>
+                            <li>Integrated Google Analytics for performance tracking and optimization.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <span class="experience-date">June 2023 – July 2025</span>
+                        <h3>Account Manager</h3>
+                        <p class="company-name">Life & Health Pharmacy - Sharjah, UAE</p>
+                    </div>
+                    <div class="experience-body">
+                        <p>Created and managed Amazon seller accounts, including setup, maintenance, and compliance. Listed and optimized product content, coordinating with Amazon Seller Support for brand approvals and issue resolution.</p>
+                        <ul class="experience-highlights">
+                            <li>Managed order fulfillment and dispatch to ensure timely, accurate delivery.</li>
+                            <li>Maintained inventory updates and accurate stock records.</li>
+                            <li>Handled brand approvals and compliance with Amazon policies.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <span class="experience-date">May 2021 – March 2023</span>
+                        <h3>E-Commerce Business Manager</h3>
+                        <p class="company-name">The Auto Ventures - Lahore, Punjab</p>
+                    </div>
+                    <div class="experience-body">
+                        <p>Built and launched online stores on WordPress and Shopify with a focus on user-friendly, conversion-oriented design. Produced and edited product photography and wrote optimized product listings using keyword research.</p>
+                        <ul class="experience-highlights">
+                            <li>Planned and executed social media campaigns to build brand awareness and drive website traffic.</li>
+                            <li>Managed customer inquiries, orders, refunds, and returns to maintain customer satisfaction.</li>
+                            <li>Handled end-to-end order fulfillment, including consignment labeling, packing, and dispatch.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <span class="experience-date">October 2019 – March 2021</span>
+                        <h3>Digital Marketing Assistant</h3>
+                        <p class="company-name">Chemtech Chemicals - Lahore, Punjab</p>
+                    </div>
+                    <div class="experience-body">
+                        <p>Supported planning and execution of campaigns across email marketing, social media, SEM, SEO, and display advertising. Assisted in creating and optimizing marketing assets aligned with brand guidelines and audience preferences.</p>
+                        <ul class="experience-highlights">
+                            <li>Supported social media management including content scheduling, community management, and performance tracking.</li>
+                            <li>Assisted in optimizing website content and structure to improve organic search rankings.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="cases" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-label">Portfolio</div>
-            <h2 class="section-title reveal">🏆 Case Studies</h2>
+            <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"/><path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span></div><h2 class="section-title reveal">Case Studies</h2>
             <div class="cases-grid">
                 <div class="case-card reveal">
                     <img class="case-image" src="images/case-1.jpg" alt="DTC Beauty Brand Case Study" onerror="this.style.display='none'">
@@ -1294,7 +1824,7 @@
     <section id="projects" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-label">Proven Work Records</div>
-            <h2 class="section-title reveal">📸 Project Gallery</h2>
+            <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span></div><h2 class="section-title reveal">Project Gallery</h2>
             <div class="projects-grid">
                 <div class="project-card reveal">
                     <div class="project-preview">
@@ -1430,10 +1960,10 @@
     <section id="skills">
         <div class="container">
             <div class="section-label">Technical Stack</div>
-            <h2 class="section-title reveal">🛠️ Tools & Technologies</h2>
+            <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><path d="M8 3l-6 9 6 9"/><path d="M16 3l6 9-6 9"/></svg></span></div><h2 class="section-title reveal">Tools & Technologies</h2>
             <div class="skills-container">
                 <div class="skill-category reveal">
-                    <h3>📢 Advertising Platforms</h3>
+                    <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><path d="M3 17h18"/><path d="M7 17l4-4 4 4 6-8"/></svg></span></div><h3>Advertising Platforms</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Meta Ads Manager</span>
                         <span class="skill-tag">Google Ads</span>
@@ -1444,7 +1974,7 @@
                     </div>
                 </div>
                 <div class="skill-category reveal">
-                    <h3>🛒 E-Commerce Platforms</h3>
+                    <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span></div><h3>E-Commerce Platforms</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Shopify</span>
                         <span class="skill-tag">Shopify Plus</span>
@@ -1454,7 +1984,7 @@
                     </div>
                 </div>
                 <div class="skill-category reveal">
-                    <h3>📊 Analytics & Tracking</h3>
+                    <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span></div><h3>Analytics & Tracking</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">GA4</span>
                         <span class="skill-tag">GTM</span>
@@ -1465,7 +1995,7 @@
                     </div>
                 </div>
                 <div class="skill-category reveal">
-                    <h3>🎨 Creative & Design</h3>
+                    <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></span></div><h3>Creative & Design</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Corel</span>
                         <span class="skill-tag">Canva</span>
@@ -1474,14 +2004,14 @@
                     </div>
                 </div>
                 <div class="skill-category reveal">
-                    <h3>📧 Marketing Automation</h3>
+                    <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span></div><h3>Marketing Automation</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Lusha Ai</span>
                         <span class="skill-tag">Smartlead</span>
                     </div>
                 </div>
                 <div class="skill-category reveal">
-                    <h3>🔧 Development & SEO</h3>
+                    <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><path d="M8 3l-6 9 6 9"/><path d="M16 3l6 9-6 9"/></svg></span></div><h3>Development & SEO</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Internal Links</span>
                         <span class="skill-tag">Bug Fixes</span>
@@ -1497,7 +2027,7 @@
     <section id="testimonials" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-label">Testimonials</div>
-            <h2 class="section-title reveal">💬 What Clients Say</h2>
+            <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span></div><h2 class="section-title reveal">What Clients Say</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card reveal">
                     <p class="testimonial-text">Rizwan transformed our entire media buying approach. Our ROAS went from 1.8x to 4.2x in under 3 months. His tracking setup alone was worth the investment.</p>
@@ -1540,22 +2070,22 @@
             <p>Let's build a high-performing growth engine for your e-commerce business. Book a free strategy call to discuss your goals.</p>
             <div class="contact-details">
                 <div class="contact-item">
-                    <span class="contact-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <span class="contact-icon icon-glow" style="--icon-color: #EA4335;">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                     </span>
                     <span class="contact-label">Email:</span>
                     <a href="mailto:rizwan.ecomgrowth@gmail.com">rizwan.ecomgrowth@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <span class="contact-icon whatsapp-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span class="contact-icon icon-glow whatsapp-icon" style="--icon-color: #25D366;">
+                        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
                     </span>
                     <span class="contact-label">WhatsApp:</span>
                     <a href="https://wa.me/923374572435" target="_blank">+92 337 4572 435</a>
                 </div>
                 <div class="contact-item">
-                    <span class="contact-icon linkedin-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    <span class="contact-icon icon-glow linkedin-icon" style="--icon-color: #0A66C2;">
+                        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                     </span>
                     <a href="https://linkedin.com/in/rizwan-muhammad-8a8b2917b" target="_blank">linkedin.com/in/rizwan-muhammad-8a8b2917b</a>
                 </div>
@@ -1721,6 +2251,17 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeModal();
         });
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            const backdrop = document.getElementById('navBackdrop');
+            
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            backdrop.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        }
     </script>
 </body>
 </html>
