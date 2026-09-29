@@ -1103,6 +1103,9 @@
             overflow: hidden;
             transition: all 0.4s ease;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .experience-card:hover {
@@ -1144,6 +1147,11 @@
 
         .experience-body {
             padding: 25px 30px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: flex-start;
+            gap: 12px;
         }
 
         .experience-body p {
@@ -1471,6 +1479,11 @@
 
             .experience-body {
                 padding: 20px;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                justify-content: flex-start;
+                gap: 12px;
             }
 
             .experience-body p {
@@ -1571,8 +1584,8 @@
             <div class="icon-wrapper"><span class="icon-glow"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span></div><h2 class="section-title reveal">Key Metrics Delivered</h2>
             <div class="metrics-grid">
                 <div class="metric-card reveal">
-                    <span class="metric-number" data-target="304">0</span>
-                    <p>Rs. 304M+ Revenue Generated</p>
+                    <span class="metric-number" data-target="304" data-suffix="M+">0</span>
+                    <p>Total Revenue Generated</p>
                 </div>
                 <div class="metric-card reveal">
                     <span class="metric-number" data-target="17.5">0</span>
@@ -1682,10 +1695,12 @@
                     </div>
                     <div class="experience-body">
                         <p>Built a complete Shopify store for a women's handbag brand, including product listings and store configuration. Executed full on-page SEO and set up Google Merchant Center and Google Analytics for performance tracking.</p>
-                        <ul class="experience-highlights">
+                            <ul class="experience-highlights">
                             <li>Launched social media presence across multiple platforms.</li>
                             <li>Managed Meta Ads and Google Ads campaigns to drive sales.</li>
                             <li>Integrated Google Analytics for performance tracking and optimization.</li>
+                            <li>Conducted keyword research and competitor analysis to improve organic rankings and drive qualified organic traffic.</li>
+                            <li>Monitored ROAS, CPC, and conversion rates, executing A/B testing on ad copies and creatives to optimize ad spend.</li>
                         </ul>
                     </div>
                 </div>
@@ -1694,14 +1709,16 @@
                     <div class="experience-header">
                         <span class="experience-date">June 2023 – July 2025</span>
                         <h3>Account Manager</h3>
-                        <p class="company-name">Life & Health Pharmacy - Sharjah, UAE</p>
+                        <p class="company-name">Life & Health Pharmacy - Sharjah, UAE <br> On-Site</p>
                     </div>
                     <div class="experience-body">
                         <p>Created and managed Amazon seller accounts, including setup, maintenance, and compliance. Listed and optimized product content, coordinating with Amazon Seller Support for brand approvals and issue resolution.</p>
-                        <ul class="experience-highlights">
+                            <ul class="experience-highlights">
                             <li>Managed order fulfillment and dispatch to ensure timely, accurate delivery.</li>
                             <li>Maintained inventory updates and accurate stock records.</li>
                             <li>Handled brand approvals and compliance with Amazon policies.</li>
+                            <li>Monitored competitor pricing and sales velocity using analytical tools to maintain Buy Box share and boost revenue.</li>
+                            <li>Analyzed PPC and organic keyword performance to optimize listings, backend search terms, and campaign profitability.</li>
                         </ul>
                     </div>
                 </div>
@@ -1709,7 +1726,7 @@
                 <div class="experience-card reveal">
                     <div class="experience-header">
                         <span class="experience-date">May 2021 – March 2023</span>
-                        <h3>E-Commerce Business Manager</h3>
+                        <h3>E-Commerce Manager</h3>
                         <p class="company-name">The Auto Ventures - Lahore, Punjab</p>
                     </div>
                     <div class="experience-body">
@@ -1828,25 +1845,25 @@
             <div class="projects-grid">
                 <div class="project-card reveal">
                     <div class="project-preview">
-                        <img src="images/Project 1/Screenshot 1.png" alt="High-Scale Meta Ads Account" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>Screenshot preview</div>'">
+                        <img src="images/Project 1/Screenshot 1.png.jpg" alt="High-Scale Meta Ads Account" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>Screenshot preview</div>'">
                         <div class="project-overlay">
                             <span>2 Screenshots</span>
                         </div>
                     </div>
                     <div class="project-content">
                         <h3>High-Scale Meta Ads Account</h3>
-                        <p>Managed a high-scale Meta Ads account for a fashion eCommerce brand running 1,517 campaigns with an average ROAS of 29.95 and only 3.34% adcost across TOF, MOF and BOF funnel strategies.</p>
+                         <p>Managed a high-performing fashion eCommerce Meta Ads account, scaling campaigns using strategic ABO and CBO budget allocation to maximize profitability across both local and international markets. Drove Rs. 55.38M in gross sales (Rs. 44.18M total sales over time) with 2,232 orders and an exceptional 43.25% returning customer rate in October 2025 through data-driven paid media optimization, high-converting creatives, and aggressive scaling on Facebook.</p>
                         <div class="project-stats">
                             <div class="project-stat">
-                                <span class="stat-value">29.95x</span>
+                                <span class="stat-value">26.15x</span>
                                 <span class="stat-label">ROAS</span>
                             </div>
                             <div class="project-stat">
-                                <span class="stat-value">3.34%</span>
+                                <span class="stat-value">3.82%</span>
                                 <span class="stat-label">Ad Cost</span>
                             </div>
                             <div class="project-stat">
-                                <span class="stat-value">Rs. 151.25M</span>
+                                <span class="stat-value">Rs. 55.38M</span>
                                 <span class="stat-label">Revenue</span>
                             </div>
                         </div>
@@ -1856,26 +1873,26 @@
 
                 <div class="project-card reveal">
                     <div class="project-preview">
-                        <img src="images/Project 2/Screenshot 1.png" alt="Multi-Brand Fashion Meta Ads" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>Screenshot preview</div>'">
+                        <img src="images/Project 2/Meta-Ads.jpg" alt="High-Efficiency Meta Ads Scaling" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>Screenshot preview</div>'">
                         <div class="project-overlay">
-                            <span>2 Screenshots</span>
+                            <span>1 Screenshot</span>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>Multi-Brand Fashion Meta Ads</h3>
-                        <p>Managed a multi-brand fashion eCommerce Meta Ads account for Elirah Formals, Shadmani Formals, Qlinekari Lawn, Chiffons and Luxe Silk achieving an average ROAS of 20.25.</p>
+                        <h3>High-Efficiency Meta Ads Scaling</h3>
+                        <p>Scaled high-intent Meta ad campaigns using optimized CBO budget allocation and targeted audience segmentation, generating 306 website purchases at a lean Rs. 167 avg CPA.</p>
                         <div class="project-stats">
                             <div class="project-stat">
-                                <span class="stat-value">20.25x</span>
-                                <span class="stat-label">ROAS</span>
+                                <span class="stat-value">306</span>
+                                <span class="stat-label">Purchases</span>
                             </div>
                             <div class="project-stat">
-                                <span class="stat-value">4.94%</span>
-                                <span class="stat-label">Ad Cost</span>
+                                <span class="stat-value">Rs. 167</span>
+                                <span class="stat-label">Avg. CPA</span>
                             </div>
                             <div class="project-stat">
-                                <span class="stat-value">Rs. 53.54M</span>
-                                <span class="stat-label">Revenue</span>
+                                <span class="stat-value">Rs. 51.2K</span>
+                                <span class="stat-label">Ad Spend</span>
                             </div>
                         </div>
                         <button class="btn btn-secondary" onclick="openModal('project2')">View Proof</button>
@@ -1884,57 +1901,29 @@
 
                 <div class="project-card reveal">
                     <div class="project-preview">
-                        <img src="images/Project 3/Screenshot 1.png" alt="Multi-Brand Meta Ads December" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>Screenshot preview</div>'">
+                        <img src="images/Project 3/Meta-Proj-1.jpg" alt="High-Volume International Meta Ads Scaling" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>Screenshot preview</div>'">
                         <div class="project-overlay">
-                            <span>2 Screenshots</span>
+                            <span>1 Screenshot</span>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>Multi-Brand Meta Ads - December</h3>
-                        <p>Managed a multi-brand fashion eCommerce Meta Ads account running 809 campaigns for brands including Saheera, Zarif, IRIS, Meesa, Mahrosh and Roohi achieving an average ROAS of 9.88.</p>
+                        <h3>High-Volume International Meta Ads Scaling</h3>
+                        <p>Scaled high-volume international Meta ad campaigns, driving 2,241 website purchases and $72.7K+ in revenue with an average CPA of $26.32 through broad targeting and aggressive CBO scaling.</p>
                         <div class="project-stats">
                             <div class="project-stat">
-                                <span class="stat-value">9.88x</span>
-                                <span class="stat-label">ROAS</span>
+                                <span class="stat-value">2,241</span>
+                                <span class="stat-label">Purchases</span>
                             </div>
                             <div class="project-stat">
-                                <span class="stat-value">10.12%</span>
-                                <span class="stat-label">Ad Cost</span>
-                            </div>
-                            <div class="project-stat">
-                                <span class="stat-value">Rs. 40.34M</span>
+                                <span class="stat-value">$72.7K</span>
                                 <span class="stat-label">Revenue</span>
+                            </div>
+                            <div class="project-stat">
+                                <span class="stat-value">$26.32</span>
+                                <span class="stat-label">Avg. CPA</span>
                             </div>
                         </div>
                         <button class="btn btn-secondary" onclick="openModal('project3')">View Proof</button>
-                    </div>
-                </div>
-
-                <div class="project-card reveal">
-                    <div class="project-preview">
-                        <img src="images/Project 4/Screenshot 1 (1).png" alt="Multi-Brand Meta Ads January" onerror="this.parentElement.innerHTML='<div class=\\'case-image-placeholder\\'>Screenshot preview</div>'">
-                        <div class="project-overlay">
-                            <span>2 Screenshots</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Multi-Brand Meta Ads - January</h3>
-                        <p>Managed a multi-brand fashion eCommerce Meta Ads account running 809 campaigns for brands including Saheera, IRIS, Zarif, Fasana, Tabeer and Muse Thread achieving an average ROAS of 10.06.</p>
-                        <div class="project-stats">
-                            <div class="project-stat">
-                                <span class="stat-value">10.06x</span>
-                                <span class="stat-label">ROAS</span>
-                            </div>
-                            <div class="project-stat">
-                                <span class="stat-value">9.94%</span>
-                                <span class="stat-label">Ad Cost</span>
-                            </div>
-                            <div class="project-stat">
-                                <span class="stat-value">Rs. 59.12M</span>
-                                <span class="stat-label">Revenue</span>
-                            </div>
-                        </div>
-                        <button class="btn btn-secondary" onclick="openModal('project4')">View Proof</button>
                     </div>
                 </div>
             </div>
@@ -2044,7 +2033,7 @@
                     <div class="testimonial-author">
                         <div class="author-avatar">M</div>
                         <div class="author-info">
-                            <strong>Zarbab Zia</strong>
+                            <strong>Haris Awaan</strong>
                             <span>CEO, Elara</span>
                         </div>
                     </div>
@@ -2123,6 +2112,7 @@
 
         function animateCounter(element) {
             const target = parseFloat(element.getAttribute('data-target'));
+            const suffix = element.getAttribute('data-suffix') || '+';
             const duration = 2000;
             const start = performance.now();
             const isFloat = target % 1 !== 0;
@@ -2138,7 +2128,7 @@
                 } else if (target === 40) {
                     element.textContent = Math.floor(current) + '%';
                 } else {
-                    element.textContent = Math.floor(current) + '+';
+                    element.textContent = Math.floor(current) + suffix;
                 }
 
                 if (progress < 1) {
@@ -2150,72 +2140,53 @@
         }
 
         const projectData = {
-            project1: {
+project1: {
                 title: 'High-Scale Meta Ads Account',
-                subtitle: 'Fashion eCommerce Brand - Rs. 151.25M in Sales',
-                description: 'Managed a high-scale Meta Ads account for a fashion eCommerce brand running 1,517 campaigns with an average ROAS of 29.95 and only 3.34% adcost across TOF, MOF and BOF funnel strategies targeting local and international audiences. Drove Rs. 151.25M in online sales with 9,691 orders and a 45.63% returning customer rate in a single month through data-driven paid media optimization and strategic budget scaling on Facebook and Instagram.',
+                subtitle: 'Fashion eCommerce Brand - Rs. 55.38M in Sales',
+                description: 'Managed a high-performing fashion eCommerce Meta Ads account, scaling campaigns using strategic ABO and CBO budget allocation to maximize profitability across both local and international markets. Drove Rs. 55.38M in gross sales (Rs. 44.18M total sales over time) with 2,232 orders and an exceptional 43.25% returning customer rate in October 2025 through data-driven paid media optimization, high-converting creatives, and aggressive scaling on Facebook.',
                 images: [
-                    'images/Project 1/Screenshot 1.png',
-                    'images/Project 1/Screenshot 2.png'
+                    'images/Project 1/Screenshot 1.png.jpg',
+                    'images/Project 1/Screenshot 2.png.jpg'
                 ],
                 stats: [
-                    { value: '29.95x', label: 'ROAS' },
-                    { value: '3.34%', label: 'Ad Cost' },
-                    { value: 'Rs. 151.25M', label: 'Revenue' },
-                    { value: '9,691', label: 'Orders' },
-                    { value: '45.63%', label: 'Returning Customers' },
-                    { value: '1,517', label: 'Campaigns' }
+                    { value: '26.15x', label: 'Top ROAS' },
+                    { value: '3.82%', label: 'Ad Cost' },
+                    { value: 'Rs. 55.38M', label: 'Revenue' },
+                    { value: '2,232', label: 'Orders' },
+                    { value: '43.25%', label: 'Returning Customers' },
+                    { value: '1,117', label: 'Campaigns' }
                 ]
             },
             project2: {
-                title: 'Multi-Brand Fashion Meta Ads',
-                subtitle: 'Elirah Formals, Shadmani Formals, Qlinekari Lawn & More - December 2025',
-                description: 'Managed a multi-brand fashion eCommerce Meta Ads account running campaigns for Elirah Formals, Shadmani Formals, Qlinekari Lawn, Chiffons and Luxe Silk achieving an average ROAS of 20.25 with only 4.94% adcost across TOF, MOF and BOF funnel strategies targeting local and international audiences. Drove Rs. 53.54M in online sales with 3,272 orders and a 44.65% returning customer rate in December 2025 through data-driven paid media optimization and strategic budget scaling on Facebook and Instagram.',
+                title: 'High-Efficiency Meta Ads Scaling',
+                subtitle: 'Fashion eCommerce Performance Marketing - Aug to Sep 2026',
+                description: 'Managed and scaled end-to-end Meta Ads performance for eCommerce fashion, driving highly cost-efficient customer acquisition. Generated 306 verified website purchases across 291K+ impressions with a total ad spend of Rs. 51.2K. Maintained an outstanding average Cost Per Acquisition (CPA) of Rs. 167.38 (dropping as low as Rs. 137 on scaled campaigns) with an average CPM of Rs. 175.78, proving maximum budget efficiency through rigorous creative and audience testing.',
                 images: [
-                    'images/Project 2/Screenshot 1.png',
-                    'images/Project 2/Screenshot 2.png'
+                    'images/Project 2/Meta-Ads.jpg'
                 ],
                 stats: [
-                    { value: '20.25x', label: 'ROAS' },
-                    { value: '4.94%', label: 'Ad Cost' },
-                    { value: 'Rs. 53.54M', label: 'Revenue' },
-                    { value: '3,272', label: 'Orders' },
-                    { value: '44.65%', label: 'Returning Customers' },
-                    { value: 'Dec 2025', label: 'Period' }
+                    { value: '306', label: 'Purchases' },
+                    { value: 'Rs. 167', label: 'Avg. CPA' },
+                    { value: 'Rs. 51.2K', label: 'Ad Spend' },
+                    { value: '291K+', label: 'Impressions' },
+                    { value: 'Rs. 175', label: 'Avg. CPM' },
+                    { value: 'Aug - Sep 2026', label: 'Period' }
                 ]
             },
             project3: {
-                title: 'Multi-Brand Meta Ads - December',
-                subtitle: 'Saheera, Zarif, IRIS, Meesa, Mahrosh & Roohi - December 2025',
-                description: 'Managed a multi-brand fashion eCommerce Meta Ads account running 809 campaigns for brands including Saheera, Zarif, IRIS, Meesa, Mahrosh and Roohi achieving an average ROAS of 9.88 with 10.12% adcost across TOF, MOF and BOF funnel strategies targeting local and international audiences. Drove Rs. 40.34M in online sales with 3,263 orders and a 31.12% returning customer rate in December 2025 through data-driven paid media optimization and strategic budget scaling on Facebook and Instagram.',
+                title: 'High-Volume International Meta Ads Scaling',
+                subtitle: 'US/Global eCommerce Campaign Scaling & Conversion Optimization',
+                description: 'Managed and scaled international performance marketing campaigns on Meta Ads, deploying structured CBO and ABO strategies across 1,190+ campaign iterations. Generated 2,241 verified purchases and delivered over $72,600 in revenue with an ad spend of $59K across 1.85M+ impressions. Maintained a consistent average CPA of $26.32 (achieving sub-$21 CPA on core winning ad sets) while sustaining stable acquisition volume in competitive tier-1 markets.',
                 images: [
-                    'images/Project 3/Screenshot 1.png',
-                    'images/Project 3/Screenshot 2.png'
+                    'images/Project 3/Meta-Proj-1.jpg'
                 ],
                 stats: [
-                    { value: '9.88x', label: 'ROAS' },
-                    { value: '10.12%', label: 'Ad Cost' },
-                    { value: 'Rs. 40.34M', label: 'Revenue' },
-                    { value: '3,263', label: 'Orders' },
-                    { value: '31.12%', label: 'Returning Customers' },
-                    { value: '809', label: 'Campaigns' }
-                ]
-            },
-            project4: {
-                title: 'Multi-Brand Meta Ads - January',
-                subtitle: 'Saheera, IRIS, Zarif, Fasana, Tabeer & Muse Thread - January 2026',
-                description: 'Managed a multi-brand fashion eCommerce Meta Ads account running 809 campaigns for brands including Saheera, IRIS, Zarif, Fasana, Tabeer and Muse Thread achieving an average ROAS of 10.06 with 9.94% adcost across TOF, MOF and BOF funnel strategies targeting local and international audiences. Drove Rs. 59.12M in online sales with 4,421 orders and a 31.96% returning customer rate in January 2026 through data-driven paid media optimization and strategic budget scaling on Facebook and Instagram.',
-                images: [
-                    'images/Project 4/Screenshot 1 (1).png',
-                    'images/Project 4/Screenshot 1 (2).png'
-                ],
-                stats: [
-                    { value: '10.06x', label: 'ROAS' },
-                    { value: '9.94%', label: 'Ad Cost' },
-                    { value: 'Rs. 59.12M', label: 'Revenue' },
-                    { value: '4,421', label: 'Orders' },
-                    { value: '31.96%', label: 'Returning Customers' },
-                    { value: '809', label: 'Campaigns' }
+                    { value: '2,241', label: 'Purchases' },
+                    { value: '$72.7K', label: 'Revenue' },
+                    { value: '$26.32', label: 'Avg. CPA' },
+                    { value: '$59K', label: 'Total Spend' },
+                    { value: '1.86M', label: 'Impressions' },
+                    { value: 'High Scale', label: 'Campaign Type' }
                 ]
             }
         };
